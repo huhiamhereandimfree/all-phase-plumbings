@@ -32,12 +32,12 @@ export function TeamSection() {
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           {/* ── LEFT: text ── */}
           <div>
-            <span className="inline-block text-[14.4px] font-bold uppercase tracking-widest text-[#4A7BC4] mb-3">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#4A7BC4] mb-3">
               {opts.team_eyebrow}
             </span>
 
             <h2
-              className="text-[43.2px] sm:text-[57.6px] font-black text-[#1E3A6E] leading-tight"
+              className="text-4xl sm:text-5xl font-black text-[#1E3A6E] leading-tight"
               style={{ fontFamily: "'Poppins', sans-serif" }}
             >
               {opts.team_heading}{" "}

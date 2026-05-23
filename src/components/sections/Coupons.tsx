@@ -32,7 +32,7 @@ export function Coupons() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center text-center gap-4 mb-12">
           <div>
-            <span className="inline-block text-[14.4px] font-semibold uppercase tracking-widest text-accent mb-3">
+            <span className="inline-block text-[24px] font-semibold uppercase tracking-widest text-accent mb-3">
               Homeowner Coupons
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary">
@@ -41,9 +41,9 @@ export function Coupons() {
           </div>
           <Link
             to="/coupons"
-            className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-accent"
+            className="inline-flex items-center gap-1.5 text-[28px] font-semibold text-primary hover:text-accent"
           >
-            View All Offers <ArrowRight className="size-4" />
+            View All Offers <ArrowRight className="size-7" />
           </Link>
         </div>
 
