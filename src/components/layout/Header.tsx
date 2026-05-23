@@ -151,10 +151,10 @@ export function Header() {
             </Link>
 
             <div className="hidden lg:flex flex-col items-center leading-tight ml-auto">
-              <span className="text-[#1E3A6E] font-normal text-[24px] tracking-wide">
+              <span className="text-[#1E3A6E] font-bold text-[24px] tracking-wide">
                 Licensed &amp; Insured
               </span>
-              <span className="text-[#6B9FE4] font-normal text-[21px] mt-0.5 self-end mr-0">
+              <span className="text-[#6B9FE4] font-bold text-[21px] mt-0.5 self-end mr-0">
                 Available 24/7
               </span>
             </div>
@@ -204,7 +204,7 @@ export function Header() {
                 <Link
                   to={item.to}
                   activeOptions={{ exact: item.exact ?? false }}
-                  className="flex items-center gap-1 px-3.5 py-3 text-[21px] font-medium text-[#1E3A6E]
+                  className="flex items-center gap-1 px-3.5 py-3 text-[21px] font-bold text-[#1E3A6E]
                              rounded-md transition-all duration-200 hover:bg-[#1E3A6E] hover:text-white"
                   activeProps={{ className: "!bg-[#1E3A6E] !text-white" }}
                 >
@@ -237,7 +237,7 @@ export function Header() {
                     key={sub.to + sub.label}
                     to={sub.to}
                     onClick={() => setOpenNav(null)}
-                    className="flex items-center min-h-[44px] px-2 text-[22px] font-normal text-[#1E3A6E]
+                    className="flex items-center min-h-[44px] px-2 text-[22px] font-bold text-[#1E3A6E]
                                border-b border-gray-100 hover:text-[#4A7BC4] hover:pl-4
                                transition-all duration-150"
                   >
@@ -260,7 +260,7 @@ export function Header() {
                 to={item.to}
                 onClick={() => setMobileOpen(false)}
                 activeOptions={{ exact: item.exact ?? false }}
-                className="px-4 py-3 rounded-lg text-base font-normal text-[#1E3A6E]
+                className="px-4 py-3 rounded-lg text-base font-bold text-[#1E3A6E]
                            hover:bg-[#1E3A6E] hover:text-white transition-all duration-200"
                 activeProps={{ className: "!bg-[#1E3A6E] !text-white" }}
               >
