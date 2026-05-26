@@ -64,12 +64,12 @@ function ServiceCard({ svc }: { svc: (typeof SERVICES)[number] }) {
 
       <div className="p-3 sm:p-6 flex flex-col flex-1">
         <h3 className="text-base sm:text-[22px] font-extrabold text-[#1E3A6E] leading-snug">{svc.title}</h3>
-        <p className="text-gray-500 mt-1 sm:mt-2 text-xs sm:text-[16px] leading-relaxed flex-1">{svc.description}</p>
+        <p className="text-gray-500 mt-1 sm:mt-2 text-sm sm:text-[16px] leading-relaxed flex-1">{svc.description}</p>
         <span
-          className="inline-flex items-center gap-1.5 text-[#1E3A6E] font-bold text-xs sm:text-[16px]
+          className="inline-flex items-center gap-1.5 text-[#1E3A6E] font-bold text-sm sm:text-[16px]
                          group-hover:gap-3 group-hover:text-[#4A7BC4] transition-all duration-200 mt-3 sm:mt-5"
         >
-          Learn More <ArrowRight className="size-3 sm:size-4" />
+          Learn More <ArrowRight className="size-3.5 sm:size-4" />
         </span>
       </div>
     </Link>

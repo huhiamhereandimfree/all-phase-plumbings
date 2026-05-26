@@ -196,17 +196,17 @@ export function Header() {
 
       {/* ── Phone-only header: hamburger · logo (center) · socials ── */}
       <div className="md:hidden bg-white border-b border-gray-100">
-        <div className="flex items-center justify-between px-3 py-2.5">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center px-3 py-2.5 gap-2">
           <button
             type="button"
             onClick={() => setMobileOpen((o) => !o)}
             aria-label="Toggle menu"
-            className="inline-flex items-center justify-center p-2 rounded-md text-[#1E3A6E] hover:bg-[#1E3A6E]/10 transition-colors duration-200"
+            className="justify-self-start inline-flex items-center justify-center p-2 rounded-md text-[#1E3A6E] hover:bg-[#1E3A6E]/10 transition-colors duration-200"
           >
             {mobileOpen ? <X className="size-7" /> : <Menu className="size-7" />}
           </button>
 
-          <Link to="/" className="shrink-0 mx-2">
+          <Link to="/" className="justify-self-center shrink-0">
             <img
               src={logo}
               alt="All Phase Plumbing"
@@ -214,7 +214,7 @@ export function Header() {
             />
           </Link>
 
-          <div className="flex items-center gap-1.5">
+          <div className="justify-self-end flex items-center gap-1.5">
             <a
               href="https://instagram.com"
               aria-label="Instagram"
@@ -244,6 +244,24 @@ export function Header() {
             </a>
           </div>
         </div>
+      </div>
+
+      {/* Phone CTA — hangs OUTSIDE the white header, attached to its bottom-right edge */}
+      <div className="md:hidden absolute top-full right-0 z-40 -mt-px">
+        <a
+          href={opts.phone_href}
+          aria-label={`Call ${opts.phone}`}
+          className="inline-flex items-center gap-1.5 px-4 py-2.5 text-white font-bold text-[14px] tracking-wide active:scale-[0.97] transition-transform"
+          style={{
+            background: "linear-gradient(135deg, #0f2246 0%, #1E3A6E 50%, #4A7BC4 100%)",
+            border: "1.5px solid #1E3A6E",
+            borderTop: "none",
+            boxShadow: "0 4px 10px -2px rgba(30,58,110,0.45)",
+          }}
+        >
+          <Phone className="size-3.5" />
+          {opts.phone}
+        </a>
       </div>
 
       {/* Logo · badge · phone (md and up only — phone uses the bar above) */}
@@ -357,80 +375,114 @@ export function Header() {
         )}
       </div>
 
-      {/* ── Mobile drawer ── */}
-      {mobileOpen && (
-        <div className="lg:hidden border-t border-gray-100 bg-white shadow-lg overflow-y-auto max-h-[80vh]">
-          <nav className="container mx-auto px-4 py-3 flex flex-col gap-0.5">
-            {NAV.map((item) => {
-              const hasDropdown = item.dropdown && item.dropdown.length > 0;
-              const isExpanded = expandedMobileItem === item.label;
-
-              return (
-                <div key={item.to + item.label} className="flex flex-col border-b border-gray-50 last:border-b-0">
-                  <div className="flex items-center justify-between">
-                    <Link
-                      to={item.to}
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setExpandedMobileItem(null);
+      {/* ── Mobile drawer — overlays the page, doesn't push content ── */}
+      <div
+        className={`lg:hidden absolute top-full left-0 right-0 z-50 border-t border-gray-100
+                   bg-white shadow-2xl overflow-y-auto
+                   transition-[max-height,opacity,transform] ease-[cubic-bezier(0.22,1,0.36,1)]
+                   ${
+                     mobileOpen
+                       ? "max-h-[85vh] opacity-100 translate-y-0 duration-[450ms]"
+                       : "max-h-0 opacity-0 -translate-y-1 duration-[280ms] pointer-events-none"
+                   }`}
+        style={{ transformOrigin: "top center" }}
+      >
+        <nav className="container mx-auto px-4 py-3 flex flex-col gap-0.5">
+          {NAV.map((item, idx) => {
+            const hasDropdown = item.dropdown && item.dropdown.length > 0;
+            const isExpanded = expandedMobileItem === item.label;
+            return (
+              <div
+                key={item.to + item.label}
+                className={`flex flex-col border-b border-gray-50 last:border-b-0
+                            transition-[opacity,transform] duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)]
+                            ${
+                              mobileOpen
+                                ? "opacity-100 translate-y-0"
+                                : "opacity-0 -translate-y-2"
+                            }`}
+                style={{ transitionDelay: mobileOpen ? `${80 + idx * 35}ms` : "0ms" }}
+              >
+                <div className="flex items-center justify-between">
+                  <Link
+                    to={item.to}
+                    onClick={() => {
+                      setMobileOpen(false);
+                      setExpandedMobileItem(null);
+                    }}
+                    activeOptions={{ exact: item.exact ?? false }}
+                    className="flex-1 px-4 py-3 text-[17px] font-bold text-[#1E3A6E] rounded-lg
+                               hover:bg-[#1E3A6E]/5 transition-all duration-200"
+                    activeProps={{ className: "!bg-[#1E3A6E]/10 !text-[#4A7BC4]" }}
+                  >
+                    {item.label}
+                  </Link>
+                  {hasDropdown && (
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setExpandedMobileItem(isExpanded ? null : item.label);
                       }}
-                      activeOptions={{ exact: item.exact ?? false }}
-                      className="flex-1 px-4 py-3 text-[17px] font-bold text-[#1E3A6E] rounded-lg
-                                 hover:bg-[#1E3A6E]/5 transition-all duration-200"
-                      activeProps={{ className: "!bg-[#1E3A6E]/10 !text-[#4A7BC4]" }}
+                      className="p-3 text-[#1E3A6E] hover:bg-[#1E3A6E]/5 rounded-lg transition-colors flex items-center justify-center"
+                      aria-label={`Toggle ${item.label} submenu`}
                     >
-                      {item.label}
-                    </Link>
-                    {hasDropdown && (
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setExpandedMobileItem(isExpanded ? null : item.label);
-                        }}
-                        className="p-3 text-[#1E3A6E] hover:bg-[#1E3A6E]/5 rounded-lg transition-colors flex items-center justify-center"
-                        aria-label={`Toggle ${item.label} submenu`}
-                      >
-                        <ChevronDown
-                          className={`size-5 opacity-70 transition-transform duration-200 ${
-                            isExpanded ? "rotate-180" : ""
-                          }`}
-                        />
-                      </button>
-                    )}
-                  </div>
-                  {hasDropdown && isExpanded && (
-                    <div className="pl-6 pr-4 pb-2.5 flex flex-col gap-1.5 bg-[#eef4fb]/40 rounded-lg animate-in fade-in slide-in-from-top-1 duration-150">
-                      {item.dropdown!.map((sub) => (
-                        <Link
-                          key={sub.to + sub.label}
-                          to={sub.to}
-                          onClick={() => {
-                            setMobileOpen(false);
-                            setExpandedMobileItem(null);
-                          }}
-                          className="px-3 py-2 text-[15px] font-semibold text-[#1E3A6E] border-l-2 border-[#1E3A6E]/20 hover:border-[#1E3A6E] hover:text-[#4A7BC4] transition-all"
-                        >
-                          {sub.label}
-                        </Link>
-                      ))}
-                    </div>
+                      <ChevronDown
+                        className={`size-5 opacity-70 transition-transform duration-300 ${
+                          isExpanded ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
                   )}
                 </div>
-              );
-            })}
-            <a
-              href={opts.phone_href}
-              className="mt-2 flex items-center justify-center gap-2 rounded-xl px-4 py-3.5
-                         text-base font-bold text-white shadow-md"
-              style={{ background: "linear-gradient(135deg,#1E3A6E 0%,#2d5fa8 100%)" }}
-            >
-              <Phone className="size-4" />
-              {opts.phone}
-            </a>
-          </nav>
-        </div>
-      )}
+                {/* Sub-menu — smooth grow */}
+                {hasDropdown && (
+                  <div
+                    className={`grid transition-[grid-template-rows,opacity] duration-[350ms]
+                                ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                                  isExpanded
+                                    ? "grid-rows-[1fr] opacity-100"
+                                    : "grid-rows-[0fr] opacity-0"
+                                }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="pl-6 pr-4 pb-2.5 flex flex-col gap-1.5 bg-[#eef4fb]/40">
+                        {item.dropdown!.map((sub) => (
+                          <Link
+                            key={sub.to + sub.label}
+                            to={sub.to}
+                            onClick={() => {
+                              setMobileOpen(false);
+                              setExpandedMobileItem(null);
+                            }}
+                            className="px-3 py-2 text-[15px] font-semibold text-[#1E3A6E] border-l-2 border-[#1E3A6E]/20 hover:border-[#1E3A6E] hover:text-[#4A7BC4] transition-all"
+                          >
+                            {sub.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+          <a
+            href={opts.phone_href}
+            className={`mt-2 flex items-center justify-center gap-2 rounded-xl px-4 py-3.5
+                       text-base font-bold text-white shadow-md
+                       transition-[opacity,transform] duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)]
+                       ${mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}`}
+            style={{
+              background: "linear-gradient(135deg,#1E3A6E 0%,#2d5fa8 100%)",
+              transitionDelay: mobileOpen ? `${80 + NAV.length * 35}ms` : "0ms",
+            }}
+          >
+            <Phone className="size-4" />
+            {opts.phone}
+          </a>
+        </nav>
+      </div>
     </header>
   );
 }

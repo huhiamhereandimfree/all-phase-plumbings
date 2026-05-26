@@ -121,19 +121,6 @@ export function BlogPreview() {
           <p className="mt-3 text-lg text-muted-foreground font-medium">
             Tips and guides from our team
           </p>
-          <StarBorder
-            as={Link}
-            to="/blog"
-            className="inline-block mt-5 transition-all"
-            innerClassName="flex items-center gap-2 text-sm font-bold text-white tracking-wider uppercase"
-            innerStyle={{
-              background: "linear-gradient(135deg,#1E3A6E 0%,#4A7BC4 100%)",
-              border: "none",
-              padding: "12px 28px",
-            }}
-          >
-            View Blogs <ArrowRight className="size-4" />
-          </StarBorder>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -147,6 +134,22 @@ export function BlogPreview() {
             : posts.length > 0
               ? posts.map((p) => <PostCard key={p.id} post={p} />)
               : [0, 1, 2].map((i) => <PlaceholderCard key={i} i={i} />)}
+        </div>
+
+        <div className="text-center mt-12">
+          <StarBorder
+            as={Link}
+            to="/blog"
+            className="inline-block transition-all"
+            innerClassName="flex items-center gap-2 text-sm font-bold text-white tracking-wider uppercase"
+            innerStyle={{
+              background: "linear-gradient(135deg,#1E3A6E 0%,#4A7BC4 100%)",
+              border: "none",
+              padding: "12px 28px",
+            }}
+          >
+            View Blogs <ArrowRight className="size-4" />
+          </StarBorder>
         </div>
       </div>
     </section>

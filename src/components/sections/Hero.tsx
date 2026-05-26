@@ -46,11 +46,7 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-end">
           {/* LEFT — hero copy (10% larger, shifted 10% left) */}
           <div
-            className="pb-20 lg:-ml-10 xl:-ml-16"
-            style={{
-              transform: "scale(1.1) translateX(0%)",
-              transformOrigin: "top left",
-            }}
+            className="pb-20 lg:-ml-10 xl:-ml-16 lg:[transform:scale(1.1)_translateX(0%)] lg:[transform-origin:top_left]"
           >
             <span className="text-[#1E3A6E] font-bold text-[28px] tracking-wide">
               All Phase Plumbing
@@ -123,12 +119,7 @@ export function Hero() {
 
         {/* ── Full-width form card — sits flush at the bottom of the hero (25% wider than container) ── */}
         <div
-          className="mt-2"
-          style={{
-            width: "112.5%",
-            marginLeft: "-6.25%",
-            marginRight: "-6.25%",
-          }}
+          className="mt-2 w-full lg:[width:112.5%] lg:[margin-left:-6.25%] lg:[margin-right:-6.25%]"
         >
           <div
             className="rounded-t-2xl overflow-hidden border-[4px] sm:border-[6px] border-[#1E3A6E]"
@@ -179,7 +170,7 @@ export function Hero() {
                 <p className="text-[15px] sm:text-[17px] font-semibold leading-snug mt-1">
                   Plumbing and Drain Cleaning
                 </p>
-                <p className="text-[13px] sm:text-[14px] font-normal text-white/85 mt-1">
+                <p className="text-[14px] font-normal text-white/85 mt-1">
                   When booked before 2pm, Monday &ndash; Friday
                 </p>
 
@@ -337,7 +328,7 @@ export function Hero() {
                   />
                   <label
                     htmlFor="sms-optin"
-                    className="text-[11px] sm:text-[12px] text-white cursor-pointer leading-relaxed"
+                    className="text-[12px] sm:text-[13px] text-white cursor-pointer leading-relaxed"
                   >
                     By submitting this form and signing up for texts, you consent to receive
                     messages from All Phase Plumbing at the number provided regarding your request,
@@ -349,6 +340,7 @@ export function Hero() {
                 </div>
 
                 <p className="mt-3 text-[12px] sm:text-[13px] text-white/75 leading-relaxed border-t border-white/15 pt-2.5">
+
                   By entering your email address, you agree to receive emails about services,
                   updates or promotions, and you agree to our{" "}
                   <a href="/about" className="underline hover:text-[#F5C842]">

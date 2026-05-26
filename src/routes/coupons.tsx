@@ -141,7 +141,7 @@ export const Route = createFileRoute("/coupons")({
           </h2>
           <Link
             to="/about"
-            className="inline-flex items-center justify-center px-8 py-3 text-sm font-extrabold text-white tracking-widest uppercase rounded shadow-md hover:opacity-90 transition-all duration-200 border-4 border-[#1E3A6E]"
+            className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-extrabold text-white tracking-widest uppercase rounded shadow-md hover:opacity-90 transition-all duration-200 border-4 border-[#1E3A6E]"
             style={{
               background: "linear-gradient(135deg, #F5C842 0%, #d4a82e 100%)",
             }}

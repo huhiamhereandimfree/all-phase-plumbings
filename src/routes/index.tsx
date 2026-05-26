@@ -41,8 +41,8 @@ function Index() {
         <WhyUs />
         <Badges />
         <TeamSection />
-        <Coupons />
         <CustomerQuote />
+        <Coupons />
         <CTABanner />
         <ServiceArea />
         <BlogPreview />

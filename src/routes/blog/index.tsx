@@ -216,7 +216,7 @@ function BlogIndex() {
                     <Link
                       to="/blog/$slug"
                       params={{ slug: a.slug }}
-                      className="inline-flex items-center text-[13px] font-bold text-primary uppercase tracking-wider hover:text-accent mb-4"
+                      className="inline-flex items-center text-sm font-bold text-primary uppercase tracking-wider hover:text-accent mb-4"
                     >
                       Read More »
                     </Link>
@@ -275,7 +275,7 @@ function BlogIndex() {
                       <Link
                         to="/blog/$slug"
                         params={{ slug: post.slug }}
-                        className="inline-flex items-center text-[13px] font-bold text-primary uppercase tracking-wider hover:text-accent mb-4"
+                        className="inline-flex items-center text-sm font-bold text-primary uppercase tracking-wider hover:text-accent mb-4"
                       >
                         Read More »
                       </Link>

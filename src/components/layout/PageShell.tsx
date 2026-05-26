@@ -31,7 +31,7 @@ export function PageHero({
         {eyebrow && (
           <span
             className={`inline-block font-semibold uppercase tracking-widest text-accent mb-3 ${
-              largeEyebrow ? "text-2xl" : "text-xs"
+              largeEyebrow ? "text-2xl" : "text-sm"
             }`}
           >
             {eyebrow}

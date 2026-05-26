@@ -67,7 +67,7 @@ function SidebarContactCard() {
         </h3>
         <p className="text-[#FFB800] font-semibold text-[18px] mt-1">Same Day Service</p>
         <p className="text-white text-[14px] mt-1">Plumbing and Drain Cleaning</p>
-        <p className="text-white/85 text-[13px]">When booked before 2pm, Monday – Friday</p>
+        <p className="text-white/85 text-[14px]">When booked before 2pm, Monday – Friday</p>
       </div>
 
       <form className="px-5 pb-6 space-y-3" onSubmit={(e) => e.preventDefault()}>
@@ -75,25 +75,25 @@ function SidebarContactCard() {
           <input
             type="text"
             placeholder="FIRST NAME*"
-            className="rounded-md border-2 border-[#1E3A6E] bg-white px-3 py-3 text-[13px] font-semibold text-[#1E3A6E] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1E3A6E]"
+            className="rounded-md border-2 border-[#1E3A6E] bg-white px-3 py-3 text-[14px] font-semibold text-[#1E3A6E] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1E3A6E]"
             required
           />
           <input
             type="text"
             placeholder="LAST NAME*"
-            className="rounded-md border-2 border-[#1E3A6E] bg-white px-3 py-3 text-[13px] font-semibold text-[#1E3A6E] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1E3A6E]"
+            className="rounded-md border-2 border-[#1E3A6E] bg-white px-3 py-3 text-[14px] font-semibold text-[#1E3A6E] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1E3A6E]"
             required
           />
           <input
             type="email"
             placeholder="EMAIL*"
-            className="rounded-md border-2 border-[#1E3A6E] bg-white px-3 py-3 text-[13px] font-semibold text-[#1E3A6E] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1E3A6E]"
+            className="rounded-md border-2 border-[#1E3A6E] bg-white px-3 py-3 text-[14px] font-semibold text-[#1E3A6E] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1E3A6E]"
             required
           />
           <input
             type="tel"
             placeholder="PHONE*"
-            className="rounded-md border-2 border-[#1E3A6E] bg-white px-3 py-3 text-[13px] font-semibold text-[#1E3A6E] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1E3A6E]"
+            className="rounded-md border-2 border-[#1E3A6E] bg-white px-3 py-3 text-[14px] font-semibold text-[#1E3A6E] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1E3A6E]"
             required
           />
         </div>
@@ -111,7 +111,7 @@ function SidebarContactCard() {
           <option>Sewer Service</option>
           <option>Other</option>
         </select>
-        <p className="text-[11px] text-white/85 leading-snug">
+        <p className="text-[12px] text-white/85 leading-snug">
           By submitting this form and signing up for texts, you consent to receive messages from All
           Phase Plumbing. Msg &amp; data rates may apply. Reply STOP to unsubscribe. Reply HELP for
           help.

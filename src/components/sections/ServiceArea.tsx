@@ -194,9 +194,9 @@ export function ServiceArea() {
                 <Link
                   key={city}
                   to="/service-area"
-                  className="flex items-center gap-1.5 py-1.5 sm:py-3 border-b border-white/15 text-white font-semibold text-[11px] sm:text-base hover:text-[#F5C842] transition-colors group"
+                  className="flex items-center gap-1.5 py-2.5 sm:py-3 border-b border-white/15 text-white font-semibold text-sm sm:text-base hover:text-[#F5C842] transition-colors group"
                 >
-                  <MapPin className="size-3 sm:size-4 text-[#F5C842] shrink-0 group-hover:scale-110 transition-transform" />
+                  <MapPin className="size-3.5 sm:size-4 text-[#F5C842] shrink-0 group-hover:scale-110 transition-transform" />
                   {city}, WA
                 </Link>
               ))}
