@@ -195,7 +195,7 @@ export function Header() {
       </div>
 
       {/* ── Phone-only header: hamburger · logo (center) · socials ── */}
-      <div className="md:hidden bg-white border-b border-gray-100">
+      <div className="lg:hidden bg-white border-b border-gray-100">
         <div className="grid grid-cols-[1fr_auto_1fr] items-center px-3 py-2.5 gap-2">
           <button
             type="button"
@@ -247,7 +247,7 @@ export function Header() {
       </div>
 
       {/* Phone CTA — hangs OUTSIDE the white header, attached to its bottom-right edge */}
-      <div className="md:hidden absolute top-full right-0 z-40 -mt-px">
+      <div className="lg:hidden absolute top-full right-0 z-40 -mt-px">
         <a
           href={opts.phone_href}
           aria-label={`Call ${opts.phone}`}
@@ -264,8 +264,8 @@ export function Header() {
         </a>
       </div>
 
-      {/* Logo · badge · phone (md and up only — phone uses the bar above) */}
-      <div className={`hidden md:block bg-white transition-all duration-300 ease-in-out ${
+      {/* Logo · badge · phone (lg and up only — phone/tablet uses the bar above) */}
+      <div className={`hidden lg:block bg-white transition-all duration-300 ease-in-out ${
         shouldShrink ? "lg:max-h-0 lg:py-0 lg:opacity-0 lg:pointer-events-none lg:overflow-hidden" : "lg:max-h-48"
       }`}>
         <div className="w-full px-4 sm:px-6 lg:px-10">
